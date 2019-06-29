@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const timerouteRoutes = express.Router();
-const PORT = 4000;
+const port = process.env.PORT || 4000;
 
 let Timeroute = require("./timeroute.model");
 
@@ -72,6 +72,6 @@ timerouteRoutes.route("/update/:id").post(function(req, res) {
 
 app.use("/timeroutes", timerouteRoutes);
 
-app.listen(PORT, function() {
-  console.log("Server is running on Port: " + PORT);
+app.listen(port, function() {
+  console.log(`Starting Server at Port: ${port}`);
 });
